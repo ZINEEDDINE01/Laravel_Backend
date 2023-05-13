@@ -30,7 +30,7 @@ class UserController extends Controller
                 'message' => 'Unauthorized',
             ], 401);
         }
-        Log::channel('slackInfo')->info('User has been logged');
+        //Log::channel('slackInfo')->info('User has been logged');
         $user = Auth::user();
         return response()->json([
                 'status' => 'success',
