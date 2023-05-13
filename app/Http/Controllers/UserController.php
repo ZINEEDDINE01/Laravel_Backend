@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use App\Models\User;
 
 class UserController extends Controller
@@ -23,12 +24,13 @@ class UserController extends Controller
 
         $token = Auth::attempt($credentials);
         if (!$token) {
+            Log::channel('slackDebug')->debug('the given data was invalid');
             return response()->json([
                 'status' => 'error',
                 'message' => 'Unauthorized',
             ], 401);
         }
-
+        Log::channel('slackInfo')->info('User has been logged');
         $user = Auth::user();
         return response()->json([
                 'status' => 'success',
@@ -38,6 +40,8 @@ class UserController extends Controller
                     'type' => 'bearer',
                 ]
             ]);
+        //Log::channel('slackCritical')->critical('');
+        //Log::channel('slackEmergency')->emergency('');
 
     }
 

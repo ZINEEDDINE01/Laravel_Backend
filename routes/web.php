@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Log;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    Log::channel('slackInfo')->info('Page Welcome');
     return view('welcome');
 });
 /*
