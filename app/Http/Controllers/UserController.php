@@ -13,7 +13,15 @@ class UserController extends Controller
     {
         $this->middleware('auth:api', ['except' => ['login','register']]);
     }
-
+    /**
+     * Autheticate
+     * @param Request $request
+     * @bodyParam email email required Example: test@gmail.com
+     * @bodyParam password string required Example: 123456
+     * @return \Illuminate\Http\Response
+     * @response {
+     *  }
+     */
     public function login(Request $request)
     {
         $request->validate([
