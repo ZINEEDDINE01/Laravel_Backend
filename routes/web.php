@@ -29,4 +29,4 @@ Route::get('/hello/{nom}',function(HttpRequest $request){
     ]);
 });
 */
-Route::get('/salam/{nom}',[HomeController::class,'index']);
+//Route::get('/salam/{nom}',[HomeController::class,'index']);
