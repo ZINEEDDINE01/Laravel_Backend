@@ -1,7 +1,4 @@
 <?php
-
-use App\Http\Controllers\HomeController;
-use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Log;
 
@@ -20,13 +17,3 @@ Route::get('/', function () {
     Log::channel('slackInfo')->info('Page Welcome');
     return view('welcome');
 });
-/*
-Route::get('/hello/{nom}',function(HttpRequest $request){
-     //dd($request->nom);
-    //$nom = "LOURIGA";
-    return view('hello',[
-        'nom'=>$request->nom,
-    ]);
-});
-*/
-//Route::get('/salam/{nom}',[HomeController::class,'index']);
